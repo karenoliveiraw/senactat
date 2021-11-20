@@ -1,0 +1,32 @@
+                         DESAFIO DE CLONAGEM 
+1° Copiar arquivos para a pasta ISO
+2° um novo HD de 90GB
+3° inicializar maquina virtual com o programa de clonagem AcronisTrueImag
+4° Iniciar o procedimento de clonagem do disco de 50gb para o de 90Gb
+5° Clonagem feita com sucesso.  
+
+Programa de clonagem: AcronisTrueImag.
+-------------------------------------------------------------------
+
+Novo procedimento de clonagem com MacriumReflect-WinPE
+
+1° Iniciar a maquina virtual com o programa MacriumReflect-WinPE
+2° Opção ''Clone this disk''
+3° Selecionar o disco de 90gb para iniciar a clonagem de disco
+5° Clonagem feita com sucesso.  
+
+Programa de clonagem:MacriumReflect-WinPE
+
+-------------------------------------------------------------------
+Novo procedimento de clonagem com AOEMI-WinPE
+
+1° Iniciar a maquina virtual com o programa AOEMI-WinPE
+2° Iniciar AOMEI Backupper
+3° Selecionar *Cloner*
+4° Selecionar * disk clone *
+5° Selecionar o disco com 50gb e prosseguir
+6° Selecionar o disco com 90gb e prosseguir
+7° Iniciar clonagem
+8° Clonagem feita com sucesso.   
+
+Programa de clonagem: AOEMI-WinPE 
