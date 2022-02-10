@@ -1,0 +1,72 @@
+#Autora: Karen Oliveira
+Linkedin:karen-oliveira-723512224/
+#Data de criação: 10/02/2022
+#Versão: 0.01
+
+==============================================================================================================================
+
+Configurando o switch pelo terminal 
+
+desktop 02
+abrir terminal
+enter
+username: admin
+senha:  *********
+  enable
+  username: admin
+  senha: *********
+   configure terminal
+   line vty 0 4
+   login local
+   password 123@senac
+   logging synchronous
+   exec-timeout 5 30
+   transport input all
+   end
+write 
+show running-config
+
+
+==============================================================================================================================
+
+Adicionando ip no desktop 02
+
+Abrir terminal
+
+ enable 
+  configure terminal
+  ip default-gateway 192.168.5.4
+  interface vlan 1
+     description 
+     #description interface SVI do Switch
+     address 192.168.1.250 255.255.255.0
+     no shutdown 
+ !
+ Comando de verificações da configuração 
+     write
+     show running-configure
+     show vlan brief
+     show interface vlan 1
+     show ip interface brief
+     
+!
+Comando de acesso remoto
+     ping 192.168.1.250
+     ping 192.168.1.251
+
+==============================================================================================================================
+
+Configurando Segurança de Acesso (SSH)
+   enable
+     configure terminal
+       ip domain-name senac.interface
+       crypto key generate rsa general-keys modulus 1024
+       ip ssh version 2
+       ip ssh time-out 120
+       ip ssh authentication-retries 2
+       line vty 0 4
+          transport input ssh
+          do (pra mostrar qualquer comando) write
+          end
+    write
+    show running-config 
