@@ -1,0 +1,55 @@
+#Autora: Karen Oliveira
+#Linkedin:karen-oliveira-723512224/
+#Data de criação: 15/02/2022
+#Versão: 0.01
+
+==============================================================================================================================
+
+Configurando a Interface do Roteador
+
+
+Host: desktop-04
+enable
+    configure terminal
+       interface gigabitEthernet 0/0 
+       description Interface de Gateway da Rede LAN 
+       ip address 192.168.1.254 255.255.255.0
+       no shutdown (ativar a interface)
+       end 
+   write (salvar as configurações)
+   
+
+   show running-config (ver todos os comandos)
+show ip interface brief (mostrar as configurações da interface )
+show interfaces gigabitEthernet 0/0 
+show ip route (comando pra ativar o roteamento)
+ping 192.168.1.254
+ping 192.168.1.250
+ping 192.168.1.251
+ping 192.168.1.1
+
+==============================================================================================================================
+
+Backup do Servidor 
+
+services
+  TFTP >> ON
+
+Propt de Comando
+  ssh -l admin 192.168.1.254
+  senha: ********* 
+
+Comandos para fazer o Backup
+ 
+   show version (Mostrar a versão do servidor)
+   show flash (Mostrar o HD)
+   copy running-config startup-config 
+   copy startup-config flash:
+
+   dir n-vram
+    copy startup-config flash
+    copy startup-config tftp:
+    ip: 192.168.1.1
+    
+============================================================================================================================== 
+
