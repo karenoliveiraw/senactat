@@ -1,0 +1,88 @@
+#Autora: Karen Oliveira
+#Linkedin:karen-oliveira-723512224/
+#Data de criação: 22/02/2022
+#Versão: 0.01
+
+==============================================================================================================================
+!Configurando interface do do Roteador 
+
+enable
+ configure terminal
+  ip routing
+   interface FastEthernet 0/24
+     no switchport 
+     ip address 192.168.2.1 255.255.255.0
+     exit
+    ip default-gateway 192.168.2.254
+ 
+  end
+  write
+
+show ip interface brief
+show ip route
+
+
+!Configurando Router #1
+ enable 
+  configure terminal
+    interface GigabitEthernet 0/0
+    description interface de Lan com Switch L3
+    no shutdown
+    end
+write
+ ping 192.168.2.1
+
+show ip interface brief
+show ip route
+
+!Configurando dois roteadores 
+
+ enable
+  configure terminal
+   interface GigabitEthernet 0/1
+   description interface da WAN - interface
+   ip address 10.0.0.1 255.255.255.252
+   no shutdown
+   end
+  write 
+ping 10.0.0.2
+
+
+ enable
+  configure terminal
+   interface GigabitEthernet 0/1
+   description interface da WAN - interface
+   ip address 10.0.0.2 255.255.255.252
+   no shutdown
+   end
+  write 
+  ping 10.0.0.1
+
+
+  enable 
+    configure terminal
+       ip  route 192.168.2.0 255.255.255.0 10.0.0.2
+       ip  route 192.168.3.0 255.255.255.0 10.0.0.2
+end
+write
+
+  enable 
+    configure terminal
+       ip  route 192.168.1.0 255.255.255.0 10.0.0.1
+       ip  route 192.168.3.0 255.255.255.0 192.168.2.1
+end
+write
+
+show ip route
+
+
+
+enable
+ configure terminal
+    admin 
+    senha:123@senac
+     ip  route 192.168.1.0 255.255.255.0 192.168.2.254
+       end
+  write
+ 
+ show ip route
