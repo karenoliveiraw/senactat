@@ -1,0 +1,23 @@
+#Autora: Karen Oliveira
+#Linkedin:karen-oliveira-723512224/
+#Data de criação: 22/02/2022
+#Versão: 0.01
+
+============================================================================================
+REDES e Infraestrutura
+Protocolo: conjunto de regras, convenções utilizadas para estabelecer comunicação.
+IP: é o protocolo padrão utilizado nas redes de computadores com a finalidade de identificar os dispositivos conectados nesta rede. Fica na camada 3 do modelo OSI (Rede).
+TCP-IP: conjunto de protocolos utilizados nas redes de computadores. O TCP é orientado a conexão, pois o pacote é retransmitido no caso do destino não receber este pacote. O TCP fica na camada 4 do modelo OSI (Transporte).
+Pacotes Novell: Utilizado nas antigas redes token ring (anel), onde havia só se podia transmitir informação, o dispositivo que tivesse com o token.
+Pacotes Apple:
+ICMP: ping. Assemelha-se a chamada durante a aula. Utilizado para diagnóstico.
+Ping da Morte: quando se envia um grande pacote ping com o intuito de sobrecarregar o sistema atacado e desta forma ele não é capaz de processar as informações reais que são solicitadas.
+Interface de Rede: trabalha na camada 3 do modelo OSI (rede), possui e entende endereços de rede.
+LAN: rede local
+WAN: internet
+MAN: rede metropolitana
+RAN: rede regional
+CAN: rede de campus
+PAN: Rede pessoal
+SAN: rede para conexão de storages
+WLAN: rede local sem fio
