@@ -1,0 +1,84 @@
+#Autora: Karen Oliveira
+#Linkedin:karen-oliveira-723512224/
+#Data de criação: 22/02/2022
+#Versão: 0.01
+!Implementação e migração de alguns serviços de Infraestrutura
+
+Host: server01
+DHCP 
+ ON
+  IP:192.168.1.0/24 
+   DEFAULT GW:192.168.1.254
+    TFTP: 192.168.3.1
+     Start Ip:192.168.1.50
+      Users:50
+
+!Backup dos roteadores
+ 
+!Roteador #2
+ ssh -l admin 192.168.2.254
+ copy running-config startup-config 
+ copy startup-config tftp 
+ 192.168.3.1 
+
+!Roteador #1
+ssh -l admin 192.168.1.254
+copy running-config startup-config 
+copy startup-config tftp 
+192.168.3.1
+
+!Removendo as Rotas Estáticas  
+
+!Roteador #2
+show ip route
+no ip route 192.168.1.0 255.255.255.0 10.0.0.1
+no ip route 192.168.3.0 255.255.255.0 192.168.2.1
+end
+show ip route
+write 
+
+
+!Roteador #1
+show ip route
+no ip 192.168.2.0 255.255.255.0 10.0.0.2
+no ip 192.168.3.0 255.255.255.0 10.0.0.2
+end
+show ip route
+write 
+
+!Trocar os modulos dos roteadores #1 e 2#
+
+HWIC-1GE-SFP (Modulo)
+GLC-LH-SMD
+Capa Cover
+
+!Trocar os fios do roteadores para Fibra
+
+!Colocar todos os desktop em DHCP
+
+
+!Configurar os roteadores com novo Ip
+
+Roteador #1
+interface gigabitEthernet 0/0/0
+description interface de Rede Wan
+ip address 200.200.0.1 255.255.255.252
+no shutdown
+end
+write
+
+Roteador #2
+interface gigabitEthernet 0/0/0
+description interface de Rede Wan
+ip address 200.204.0.2 255.255.255.252
+no shutdown
+end
+write
+
+!Adicionar novas Rotas Estáticas 
+#Roteador #1
+ip  route 192.168.2.0 255.255.255.0 200.204.0.2
+ip  route 192.168.3.0 255.255.255.0 200.204.0.2 
+
+#Roteador #2
+ip  route 192.168.1.0 255.255.255.0 200.204.0.1
