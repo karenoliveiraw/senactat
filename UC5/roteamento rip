@@ -42,7 +42,157 @@ BA PARA O RJ
 
 PR PARA SP
 
+enable#Autora: Karen Oliveira
+#Linkedin:karen-oliveira-723512224/
+#Data de criação: 22/02/2022
+#Versão: 0.01
+
+--------------------------------------------------------------------------------
+
+
+
+!Roteamento RIP
 enable
+  configure terminal
+    hostname BA
+    interface gigabitEthernet 0/0
+      description LAN Da bAHIA
+      ip address 192.168.210.1 255.255.255.0
+      no shutdown 
+	  exit
+	interface serial 0/0/1
+      description INTERFACE WAN QUE LIGA BA A RJ E SP
+	  ip address 30.0.0.2 255.0.0.0
+      bandwidth 128
+      no shutdown 
+	  exit
+	router rip
+	network 192.168.210.0
+	network 30.0.0.1
+	wr
+
+BA PARA O RJ 
+
+	interface serial 0/0/0
+      description INTERFACE WAN QUE LIGA BA A RJ E SP
+	  ip address 30.0.0.1 255.0.0.0
+      bandwidth 128
+      no shutdown 
+	  exit
+	router rip
+	network 192.168.200.0
+	network 30.0.0.0
+	wr
+
+PR PARA SP
+
+enable
+  configure terminal
+    hostname AM
+    interface gigabitEthernet 0/0
+      description LAN DO PARANA
+      ip address 192.168.90.1 255.255.255.0
+      no shutdown 
+	  exit
+	interface serial 0/0/0
+      description INTERFACE WAN QUE LIGA PR A SP, RJ E BA 
+	  ip address 11.0.0.1 255.0.0.0
+      bandwidth 128
+      no shutdown 
+	  exit
+	router rip
+	network 192.168.90.0
+	network 11.0.0.0
+	wr
+
+SP PARA PR 
+	
+    interface serial 0/0/1
+      description INTERFACE WAN QUE LIGA PR A SP, RJ E BA 
+	  ip address 11.0.0.2 255.0.0.0
+      bandwidth 128
+      no shutdown 
+	  exit
+	router rip
+	network 192.168.100.0
+	network 11.0.0.0
+	wr
+
+
+
+AM PARA BA
+enable
+  configure terminal
+    hostname AM
+    interface gigabitEthernet 0/0
+      description LAN DO AMAPA
+      ip address 192.168.220.1 255.255.255.0
+      no shutdown 
+	  exit
+	interface serial 0/0/1
+      description INTERFACE WAN QUE LIGA AM A PR A BA, RJ E SP
+	  ip address 40.0.0.2 255.0.0.0
+      bandwidth 128
+      no shutdown 
+	  exit
+	router rip
+	network 192.168.220.0
+	network 40.0.0.1
+	wr
+
+BA PARA AM
+    interface serial 0/0/0
+      description INTERFACE WAN QUE LIGA BA, A PR, SP, RJ E BA 
+	  ip address 40.0.0.1 255.0.0.0
+      bandwidth 128
+      no shutdown 
+	  exit
+	router rip
+	network 192.168.210.0
+	network 40.0.0.0
+	wr
+
+AC PARA AM 
+enable
+  configure terminal
+    hostname AC
+    interface gigabitEthernet 0/0
+      description LAN DO ACRE 
+      ip address 192.168.230.1 255.255.255.0
+      no shutdown 
+	  exit
+	interface serial 0/0/1
+      description INTERFACE WAN QUE LIGA AC A AM, PR A BA, RJ E SP
+	  ip address 50.0.0.2 255.0.0.0
+      bandwidth 128
+      no shutdown 
+	  exit
+	router rip
+	network 192.168.230.0
+	network 50.0.0.1
+	wr
+
+AM PARA AC
+    interface serial 0/0/0
+      description INTERFACE WAN QUE LIGA BA, A PR, SP, RJ E BA 
+	  ip address 50.0.0.1 255.0.0.0
+      bandwidth 128
+      no shutdown 
+	  exit
+	router rip
+	network 192.168.220.0
+	network 50.0.0.0
+	wr
+
+
+
+
+
+© 2022 GitHub, Inc.
+Terms
+Privacy
+Security
+Sta
   configure terminal
     hostname AM
     interface gigabitEthernet 0/0
