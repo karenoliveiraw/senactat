@@ -1,0 +1,136 @@
+#Autora: Karen Oliveira
+#Linkedin:karen-oliveira-723512224/
+#Data de criação: 25/03/2022
+#Versão: 0.01
+
+==============================================================================================================================================
+!Documentação da Rede 
+IPV4:172.16.11.0/24	
+DOMAIN:karen.intra
+pFSense: fwkaren
+Ubuntu: wskaren
+windows name:srvkaren
+pFSense IP:172.16.11.254
+Ubuntu IP:172.16.11.20
+windows IP:172.16.11.10
+wan internet: 10.26.44.
+==============================================================================================================================================
+!Criando Maquina Virtual
+nome:Firewall-pfSense
+Tipo:BSD
+Tamanho da memoria: 2048 Ram
+Criar disco rigido >> VDI >> 16gb
+Processador 2 núcleos
+Rede >> 2 placas de redes >> 1° placa: Modo bridge >>  2° placa: Rede Internet
+
+==============================================================================================================================================
+!Instalando o pFSense
+install
+brazilian keys with accent 
+Auto ZFS 
+stripe
+espaço para selecionar > Virtual Box 
+Manual configuration > NO
+Reboot 
+
+==============================================================================================================================================
+!Configurando o IP na interface
+Wan: em0 > 10.26.44.61
+Lan: em1 > 192.168.1.1/24
+
+enter > 2 > 2 (lan)
+172.16.11.254
+172.16.11.100
+172.16.11.150
+==============================================================================================================================================
+
+!Mint
+
+Placa de Rede: Rede internet
+IPV4: 172.16.11.100
+ROTA PADRÃO:172.11.254
+DNS:172.16.11.254
+
+==============================================================================================================================================
+!Firefox
+172.16.11.254
+admin
+senha:pfsense
+domain:fwkaren
+karen.intra
+8.8.8.8
+8.8.4.4
+time server a.st1.npt.br
+timezone: america são paulo
+admin password:123@senac
+reload
+finish
+
+==============================================================================================================================================
+!Personalizar DASHBOARD
+system
+general setup
+dns:8.8.8.8
+dns>8.8.4.4
+dns resolution behavior:padrão
+time server a.st1.npt.br
+timezone: america são paulo
+theme:pfSense-dark
+hostname in menu: fully qualified domain name
+dashboard columns:3
+interfaces sort: sort alphabetically
+associated panels: show all
+login page color:blue
+login hostname: show hostname on login banner 
+save
+
+==============================================================================================================================================
+!Atualização do Sistema
+system
+update
+system update
+update settings
+dashboard check: on
+
+==============================================================================================================================================
+!Avaliable Widgets
+picture widget
+save
+senac logo transparente
+new picture
+widget title:karen
+load image 
+save
+gateways widget
+configurações
+display: both
+interface statistics widget
+traffic graphs widget
+service status Widget
+ntp status widget
+dynamic dns status widget
+IPsec widget
+firewall logs
+
+firewall logs configuraçãoes
+widget title: firewall logs
+numbers of entries:20
+filter interface:all
+filters
+update interval:1
+
+==============================================================================================================================================
+pfSense versão plus
+pfSense Store: https://shop.netgate.com/account/register
+pfSense Plus activation Token
+ativar o Token no pfSense 2.6.0
+system
+register
+register pfSense
+activation token
+register
+system
+update
+system Update
+confirmation 
+
