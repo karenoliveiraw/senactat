@@ -223,6 +223,158 @@ save
 System/Advanced/Admin/Access
 SSL/TLS Certificate:certificado do pfsense
 save 
+****************************************
+
+time server a.st1.npt.br
+timezone: america são paulo
+theme:pfSense-dark
+hostname in menu: fully qualified domain name
+dashboard columns:3
+interfaces sort: sort alphabetically
+associated panels: show all
+login page color:blue
+login hostname: show hostname on login banner 
+save
+
+==============================================================================================================================================
+!Atualização do Sistema
+system
+update
+system update
+update settings
+dashboard check: on
+
+==============================================================================================================================================
+!Avaliable Widgets
+picture widget
+save
+senac logo transparente
+new picture
+widget title:karen
+load image 
+save
+gateways widget
+configurações
+display: both
+interface statistics widget
+traffic graphs widget
+service status Widget
+ntp status widget
+dynamic dns status widget
+IPsec widget
+firewall logs
+
+firewall logs configuraçãoes
+widget title: firewall logs
+numbers of entries:20
+filter interface:all
+filters
+update interval:1
+
+==============================================================================================================================================
+pfSense versão plus
+pfSense Store: https://shop.netgate.com/account/register
+pfSense Plus activation Token
+ativar o Token no pfSense 2.6.0
+system
+register
+register pfSense
+activation token
+register
+system
+update
+system Update
+confirmation 
+==============================================================================================================================================
+!Segurança basica 
+
+system
+advanced
+Enable Secure Shell 
+
+!Console Options
+enable password protect the console menu
+username:admin
+password:*********
+
+==============================================================================================================================================
+SSH no mint
+
+!terminal
+ssh admin@172.16.11.254
+yes
+password:*********
+terminal
+pwd
+cd .ssh
+ls
+ssh-keygen
+/home/karen/.ssh/id_rsa): /home/karen/.ssh/pfsense
+enter
+enter
+!Configurações do Pfsense
+
+
+ctrl+l
+ls -lh
+cat pfsense.pub
+selecionar chave
+
+!System/User Manager / Users
+actions
+!Keys
+ssh-rsa 
+!Authorized SSH KeysAAAAB3NzaC1yc2EAAAADAQABAAABgQCkm2Mox965YOeHCdsIVxQbUPOoh9lyI9qZnIeGGHJmGgXynXMHObmeELeSOBcu76EassuvnuPsc+Aj9pSPbMKsXtS327NLpp24QJSSzg+9F1/I8iFMqXF/yPpJ7z2zy0wWAJ+N33omHi3nYBE0ilwSwCtBW8QBfE83TbmGyXtmpPo57HrZRrgQYgKWyj1NIb9kw7WskUqumKs2pvmm5E5p4rTHMs7uuu/7UXVArfH/hY+3K31Vdp/p2JJgbmfSRnWA/b/RidIUbXDzReLi+3d7bG7TzyqY8+VBAIJg0lbBxmuCuVM6j61WIumn+2L2bsd7MIJP7XMD1j88DWc9uIcs/NQ3GlXBW2siAw3anQbRK5tIX4IPUhqWWp1H3cz3ZM82qgztHusQj/tvBHXkYkEZu8jPxY3fAaLaDxfGOPVBRf4+wqoP6+WFIcHKOsLKDFXGrFSQA5XWuwlNoaYMeDYqccfHJ88eEm0veohvMbJLSMYkaulDBEIbj5dhgNyMIKE=
+
+!terminal
+ssh admin@172.16.11.254
+password:**********
+*****************************************
+!system /advanced/admin/ access
+!secure Shell
+SSH Key Only: require nboth password and public key
+****************************************
+!Status/System/Logs/System/General
+!Advanced Log Filter
+process:sshd
+******************************************
+!System/Certificate/Manager/CAs
+!Certificate Authorities
++add
+descriptive name:karen
+method: create an internal certiicate authority
+trust store:emable
+key type:RSA / 2048
+digest algorithm: sha256
+lifetime:3650
+common name:karen.intra
+country cide:br
+state:sp
+city:sp
+organization:KS KS
+organization list: Firewall pfSense da Matriz
+!Export CA
+******************************************
+!Firefox
+configurações
+cert
+autoridades
+importar
+karen.csa
+******************************************
+System/Certificate/Manager/Certificates
+method: create an internal Certificate
+descriptive name: certificado do pfsense
+commom name:fwkaren.karen.intra
+!Certificate Attributes
+certificate type: server certiicate
+alternative names ip address: 172.16.11.254
+alternative names fqdn or hostname:fwkaren
+save
+****************************************
+System/Advanced/Admin/Access
+SSL/TLS Certificate:certificado do pfsense
+save 
 !Mint
 
 Placa de Rede: Rede internet
@@ -312,4 +464,3 @@ system
 update
 system Update
 confirmation 
-
