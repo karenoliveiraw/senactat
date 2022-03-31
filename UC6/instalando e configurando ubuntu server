@@ -54,9 +54,95 @@ ping google.com
 sudo apt update
 sudo apt upgrate
 sudo apt full-upgrade
+sudo apt dist-upgrade#Autora: Karen Oliveira
+#Linkedin:karen-oliveira-723512224/
+#Data de criação: 30/03/2022
+#Versão: 0.01
+*******************************************************************
+
+
+!Instalando o Ubuntu Server
+
+language: english us
+next
+layout:portuguese br
+enp0s3 eth 
+  edit ipv4   
+    subnet:172.16.11.0/24
+     address:172.16.11.20
+      gateway:172.16.11.254
+       name servers:172.16.11.254
+        domain:karen.intra
+                
+continue 
+****************************************************************
+!Used Devices
+mirros address br to us
+
+guided storage:done 
+
+name:ubunt-lv
+size:48.496G
+format:ext4
+
+done
+continue
+****************************************************************
+!Profile Setup
+your name: karen oliveira da silva  
+server name: wskaren     
+pick a username:senac   
+password:*********
+****************************************************************
+!SSH Setup
+
+[space] Install OpenSSH server
+reboot now
+
+****************************************************************
+!Comandos para checar as configurações de ip
+ip address show
+ip route 
+sudo systemd- resolve --status 
+q 
+ping google.com
+================================================================
+sudo apt update
+sudo apt upgrate
+sudo apt full-upgrade
 sudo apt dist-upgrade
 sudo apt autoremove
 sudo apt autoclean
 sudo apt clean
 sudo reboot
-****************************************************************
+**************************************************************** 
+!Pingando do Mint pro Ubunt
+
+ping 172.16.11.20
+ssh senac@172.16.11.20
+
+**************************************************************** 
+
+!Configuração do Locale do Sistema Operacional Ubuntu Server
+sudo localectl
+sudo locale-gen pt_BR.UTF-8
+sudo localectl set-locale LANG=pt_BR.UTF-8
+sudo update-locale LANG=pt_BR.UTF-8 LC_ALL=pt_BR.UTF-8 LANGUAGE="pt_BR:pt:en"
+sudo reboot
+
+=======================================================================
+!Configuração do Timezone 
+sudo timedatectl
+sudo timedatectl set-timezone "America/Sao_Paulo"
+sudo vim /etc/systemd/timesyncd.conf
+     [time] 
+        insert 
+          NTP=a.ntp.st1.ntp.br 
+            FallbackNTO=a.ntp.br
+              :x 
+
+sudo reboot
+sudo apt autoremove
+sudo apt autoclean
+sudo apt clean
+sudo reboot
