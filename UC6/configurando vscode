@@ -1,0 +1,82 @@
+#Autora: Karen Oliveira
+#Linkedin:karen-oliveira-723512224/
+#Data de criação: 01/04/2022
+#Versão: 0.01
+****************************************************************************************************************************************************************************
+!Instalando extensões do VS Code
+
+bash beautify
+bats (bash automated testing system)
+brazilian portuguese - code spell checker
+catalan - code spell checker
+portuguese brazil (language)
+shell-format
+shellcheck
+vim
+
+!Configurando portuguese - code spell checker
+
+ !user
+  portuguese - code spell checker
+    f1 show spell check
+     enable portuguese - portuguese brazil
+
+!files types and programming languages
+       bat
+       git-commit
+       hosts
+       ini
+       log
+       makefile
+       markdown
+       perl
+       powershell
+       python
+       shellcheckrc
+       shellscript
+       sql
+       text
+       tex
+       typescript
+       vb
+       xml
+       yaml
+       yml 
+
+****************************************************************************************************************************************************************************
+!Configurando Visual Studio Code 
+  
+  configurações
+    		code spell checker
+			c spell: enabled language ids:
+				adicionar item: shellscript
+			c spell: language: en,pt,pt-BR
+			c spell: max duplicate problems: 500000
+			c spell: max number of problems: 100000
+		editor
+			editor: tab size: 4
+			editor: detect indentation: false (Off)
+			editor: insert spaces: false (Off)
+		files
+			files: eol: \n (LF)
+
+
+editor
+			editor: tab size: 4
+			editor: detect indentation: false (Off)
+			editor: insert spaces: false (Off)
+		files
+			files: eol: \n (LF)
+
+****************************************************************************************************************************************************************************
+!Configurações Globais do Git para funcionar com o VSCode
+
+atalho: ctrl + j
+	terminal
+        git config --global user.name "karen"
+		git config --global user.email "****************@gmail.com"
+		git config --global core.editor vim
+		git config --global merge.tool vimdiff
+		git config --global color.ui true
+
+****************************************************************************************************************************************************************************
