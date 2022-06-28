@@ -1,0 +1,122 @@
+package portfolio;
+
+import java.awt.EventQueue;
+
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.border.EmptyBorder;
+import javax.swing.JButton;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
+import javax.swing.JLabel;
+import javax.swing.ImageIcon;
+import java.awt.Toolkit;
+import java.awt.Color;
+import java.awt.SystemColor;
+import java.awt.Cursor;
+import javax.swing.UIManager;
+import javax.swing.border.MatteBorder;
+
+public class Portfolio extends JFrame {
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	private JPanel contentPane;
+
+	/**
+	 * Launch the application.
+	 */
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					Portfolio frame = new Portfolio();
+					frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+
+	/**
+	 * Create the frame.
+	 */
+	public Portfolio() {
+		setIconImage(Toolkit.getDefaultToolkit().getImage(Portfolio.class.getResource("/img/pc.png")));
+		setResizable(false);
+		setTitle("Portf\u00F3lio de projetos");
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setBounds(100, 100, 450, 300);
+		contentPane = new JPanel();
+		contentPane.setBackground(UIManager.getColor("Button.background"));
+		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+		setContentPane(contentPane);
+		contentPane.setLayout(null);
+		
+		JButton btnNewButton = new JButton("");
+		btnNewButton.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+		btnNewButton.setToolTipText("Calculadora IMC");
+		btnNewButton.setForeground(SystemColor.menu);
+		btnNewButton.setBorderPainted(false);
+		btnNewButton.setIcon(new ImageIcon(Portfolio.class.getResource("/img/imcc.png")));
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				// as linhas abaixo fazem o link com o formulário IMC
+				IMC imc = new IMC();
+				imc.setVisible(true);
+			}
+		});
+		btnNewButton.setBounds(35, 34, 48, 48);
+		contentPane.add(btnNewButton);
+		
+		JButton btnNewButton_1 = new JButton("Sobre");
+		btnNewButton_1.setBackground(UIManager.getColor("Button.background"));
+		btnNewButton_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				//evento clicar no botão
+				Sobre sobre = new Sobre();
+				sobre.setVisible(true);
+			}
+		});
+		btnNewButton_1.setBounds(306, 227, 89, 23);
+		contentPane.add(btnNewButton_1);
+		
+		JButton btnNewButton_2 = new JButton("");
+		btnNewButton_2.setBorder(new EmptyBorder(0, 0, 0, 0));
+		btnNewButton_2.setBorderPainted(false);
+		btnNewButton_2.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+		btnNewButton_2.setToolTipText("Calculadora da Media");
+		btnNewButton_2.setBackground(SystemColor.control);
+		btnNewButton_2.setIcon(new ImageIcon(Portfolio.class.getResource("/img/media.png")));
+		btnNewButton_2.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				Media media = new Media();
+				media.setVisible(true);
+			}
+		});
+		btnNewButton_2.setBounds(35, 142, 64, 64);
+		contentPane.add(btnNewButton_2);
+		
+		JButton btnNewButton_3 = new JButton("");
+		btnNewButton_3.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+		btnNewButton_3.setBackground(UIManager.getColor("Button.light"));
+		btnNewButton_3.setBorder(null);
+		btnNewButton_3.setHideActionText(true);
+		btnNewButton_3.setToolTipText("Conversor de Temperatura");
+		btnNewButton_3.setBorderPainted(false);
+		btnNewButton_3.setIcon(new ImageIcon(Portfolio.class.getResource("/img/7795659_weather_warm_termometer_temperature_icon.png")));
+		btnNewButton_3.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+		       ConversaoTemperatura conversao = new ConversaoTemperatura ();
+		       conversao.setVisible(true);
+			}
+			
+			
+		});
+		btnNewButton_3.setBounds(291, 34, 48, 48);
+		contentPane.add(btnNewButton_3);
+	}// fim do construtor
+}
