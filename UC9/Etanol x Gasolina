@@ -1,0 +1,111 @@
+package portfolio;
+
+import java.awt.BorderLayout;
+import java.awt.FlowLayout;
+
+import javax.swing.JButton;
+import javax.swing.JDialog;
+import javax.swing.JPanel;
+import javax.swing.border.EmptyBorder;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import javax.swing.JTextField;
+import java.awt.Font;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
+import javax.swing.ImageIcon;
+import java.awt.Color;
+
+public class Combustivel extends JDialog {
+
+	private final JPanel contentPanel = new JPanel();
+	private JTextField txtEtanol;
+	private JTextField txtGasolina;
+	private JLabel lblStatus;
+
+	/**
+	 * Launch the application.
+	 */
+	public static void main(String[] args) {
+		try {
+			Combustivel dialog = new Combustivel();
+			dialog.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
+			dialog.setVisible(true);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+
+	/**
+	 * Create the dialog.
+	 */
+	public Combustivel() {
+		setModal(true);
+		setTitle("Etanol x Gasolina");
+		setBounds(100, 100, 342, 377);
+		getContentPane().setLayout(null);
+		contentPanel.setBounds(0, 0, 316, 338);
+		contentPanel.setBorder(new EmptyBorder(5, 5, 5, 5));
+		getContentPane().add(contentPanel);
+		contentPanel.setLayout(null);
+		{
+			JLabel lblNewLabel = new JLabel("Etanol");
+			lblNewLabel.setFont(new Font("Tahoma", Font.BOLD, 14));
+			lblNewLabel.setBounds(10, 38, 46, 14);
+			contentPanel.add(lblNewLabel);
+		}
+		{
+			JLabel lblNewLabel_1 = new JLabel("Gasolina");
+			lblNewLabel_1.setFont(new Font("Tahoma", Font.BOLD, 14));
+			lblNewLabel_1.setBounds(10, 72, 70, 14);
+			contentPanel.add(lblNewLabel_1);
+		}
+		{
+			txtEtanol = new JTextField();
+			txtEtanol.setBackground(new Color(204, 0, 102));
+			txtEtanol.setBounds(136, 35, 86, 20);
+			contentPanel.add(txtEtanol);
+			txtEtanol.setColumns(10);
+		}
+		{
+			txtGasolina = new JTextField();
+			txtGasolina.setBackground(new Color(204, 51, 102));
+			txtGasolina.setBounds(136, 71, 86, 20);
+			contentPanel.add(txtGasolina);
+			txtGasolina.setColumns(10);
+		}
+		{
+			JButton btnNewButton = new JButton("Calcular");
+			btnNewButton.setBackground(new Color(204, 0, 102));
+			btnNewButton.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent e) {
+					calcular ();
+				}
+			});
+			btnNewButton.setBounds(114, 147, 89, 23);
+			contentPanel.add(btnNewButton);
+		}
+		
+		lblStatus = new JLabel("");
+		lblStatus.setIcon(new ImageIcon(Combustivel.class.getResource("/img/neutro.png")));
+		lblStatus.setBounds(0, 159, 360, 200);
+		contentPanel.add(lblStatus);
+		} //fim do construtor
+		
+		void calcular () {
+		//variaveis
+		double etanol,gasolina;
+		//entrada
+		etanol = Double.parseDouble(txtEtanol.getText());
+		gasolina = Double.parseDouble(txtGasolina.getText());
+		//processamento/saida
+		if (etanol < 0.7 * gasolina) {
+		JOptionPane.showMessageDialog(null, "Abastecer com Etanol");
+		lblStatus.setIcon(new ImageIcon(Combustivel.class.getResource("/img/etanol.png")));
+			} else {
+		JOptionPane.showMessageDialog(null, "Abastecer com Gasolina");
+		lblStatus.setIcon(new ImageIcon(Combustivel.class.getResource("/img/gasolina.png")));
+			} 
+		
+	}
+} // fim do codigo
