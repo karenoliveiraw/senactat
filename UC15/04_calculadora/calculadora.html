@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora Flex</title>
+
+   
+</head>
+<body>
+    
+    <style> 
+    h1{
+        color:#ffffff;
+    }
+    body{
+        background: #000000;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+    }
+     div{
+         background: #eb4155;
+         width: 400px;
+         height: 300px;
+         text-align: center;
+         margin: 20px auto;
+         padding: 20px 0px;
+         border-radius: 30px;
+     }
+    </style>
+</body>
+<div>
+
+<body>
+    <h1>Calculadora Flex</h1>
+    <img src="img/neutro.png" alt=""
+    id="status">
+
+    <form name="frmFlex">
+      <input type="text"
+        placeholder="Etanol" size="8"
+        name="txtEtanol">  
+        
+       <input type="text"
+        placeholder="Gasolina" size="8"
+        name="txtGasolina">
+
+       
+        
+        <input type="button"
+        value= "Vantagem" onclick="calcular ()">
+        <input type="button"
+        value= "Limpar" onclick="resetar()">
+        
+    </form>
+</div>
+
+<script src="calc.js"> </script>
+
+
+</body>
+</html>
