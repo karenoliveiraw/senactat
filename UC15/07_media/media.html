@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Média</title>
+</head>
+
+<style>
+    body {
+        background: rgb(255, 255, 255);
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        color: rgb(255, 255, 255);
+    }
+
+    .container {
+        background: rgb(25, 187, 173);
+        width: 400px;
+        height: 250px;
+        text-align: center;
+        margin: 20px auto;
+        padding: 20px 0px;
+        border-radius: 30px;
+
+    }
+
+    #resp {
+        padding: 20px 0px;
+    }
+    
+</style>
+<div class="container">
+   
+    <h1>Boletim Escolar</h1>
+    Nome: <input type="text" name="tnome" id="tnome" > 
+    <br><br>
+    <input type="number" name="nt1" id="nota1"> 
+    <input type="number" name="nt2" id="nota2"> 
+    <br><br>
+    <input type="number" name="nt3" id="nota3"> 
+
+    
+    <br><br>
+
+    <input type="button" value="Calcular" onclick="media()">
+
+    <div id="resp"> Média... </div>
+
+</div>
+<script src="media.js"></script>
+
+<body>
+
+</body>
+
+</html>
